@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>page not found — xyz_xyz</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/icona.svg" type="image/svg+xml">
+<link rel="icon" href="/icona-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icona-180.png">
+<link rel="preload" href="/inter-regular.woff" as="font" type="font/woff" crossorigin>
+<meta name="theme-color" content="#ffffff">
+<style>
+  /* la pagina «non trovata»: la stessa griglia della vetrina e della privacy, il logo e una riga */
+  @font-face { font-family: "Inter Vetrina"; src: url("/inter-regular.woff") format("woff"); font-display: swap; }
+  :root { --carta: #FFFFFF; --inchiostro: #000000; --margine: 40px; --corpo: 13px; --spaziatura: 0.048em; }
+  * { box-sizing: border-box; }
+  html { background: var(--carta); color: var(--inchiostro); -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; font-family: "Inter Vetrina", Inter, "Helvetica Neue", Arial, sans-serif; font-size: var(--corpo); line-height: 1.5; letter-spacing: var(--spaziatura); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--inchiostro); color: var(--carta); }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  :focus-visible { outline: 1px solid var(--inchiostro); outline-offset: 4px; }
+  h1, p { margin: 0; font-size: inherit; font-weight: 400; }
+
+  .pagina { padding: var(--margine); display: grid; grid-template-columns: 56fr 44fr; }
+  .logo { grid-column: 1; width: 230px; display: block; line-height: 0; }
+  .logo svg { display: block; width: 100%; height: auto; fill: var(--inchiostro); }
+  .testo { grid-column: 2; padding-top: 25px; }
+
+  @media (max-width: 760px) {
+    :root { --margine: 22px; }
+    .pagina { display: block; }
+    .logo { width: 150px; margin-bottom: 36px; }
+    .testo { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<main class="pagina">
+  <a class="logo" href="/" aria-label="xyz_xyz, back to the home page"><svg viewBox="0 0 1840.824 824" aria-hidden="true"><path d="M1771.568,299.234l-85.077,12.121v.308l-127.952,152.549h131.734v60.569h-222.201v-57.538l124.915-152.555h-119.995v-27.119l-76.846,144.47v92.742h-75.327v-92.742l-79.346-149.169-66.009,105.258,85.553,136.653h-89.341l-48.831-90.848-48.455,90.848h-89.711l85.547-136.653-84.416-134.003h88.96l48.074,88.954,47.699-88.954h139.673l48.455,108.262,48.074-108.262h186.725l.466-1.115c15.972-34.931,30.141-71.002,44.524-106.525l22.453-53.72L1592.476,0l-403.795,42.341v-.027s-192.84,20.221-192.84,20.221l-60.296,91.002-101.534-74.033-387.124,40.593-57.799,87.461-108.604-70.013-205.061,21.502L0,405.461l106.617,70.894,55.232-88.227-84.416-134.003h88.96l48.074,88.954,47.699-88.954h139.673l48.455,108.262,48.074-108.262h279.744v57.538l-127.952,152.549h131.734v60.569h-222.201v-57.538l124.915-152.555h-119.995v-27.119l-76.846,144.47v92.742h-75.328v-92.742l-79.346-149.169-66.009,105.258,85.553,136.653h-89.341l-48.831-90.848-44.939,84.255,75.566,50.247.029-.049.688.458-83.232,255.157,251.288-32.023,54.09-93.18,115.324,74.908,205.126-22.126,82.771-142.265,90.696,123.554,173.223-18.685,74.66-128.055-3.37,19.753,68.433,93.086,415.454-50.655,150.551-261.81-69.256-87.268ZM944.206,524.781h-121.717v-60.859h121.717v60.859Z"/></svg></a>
+  <div class="testo">
+    <h1>this page doesn’t exist.</h1>
+    <p>go to <a href="/">xyzxyz.it</a></p>
+  </div>
+</main>
+</body>
+</html>
