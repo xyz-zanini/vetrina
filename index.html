@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xyz_xyz — project space</title>
+<meta name="description" content="xyz_xyz is a project space for contemporary art, founded by Giacomo Cristiani and Filippo Zanini.">
+<link rel="canonical" href="https://xyzxyz.it/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xyzxyz.it/">
+<meta property="og:title" content="xyz_xyz — project space">
+<meta property="og:description" content="xyz_xyz is a project space for contemporary art, founded by Giacomo Cristiani and Filippo Zanini.">
+<meta property="og:image" content="https://xyzxyz.it/condivisione.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="icon" href="icona-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icona-180.png">
+<link rel="preload" href="inter-regular.woff" as="font" type="font/woff" crossorigin>
+<meta name="theme-color" content="#ffffff">
+<style>
+  /* la vetrina di xyz_xyz: un fondo, un inchiostro, il carattere dei biglietti */
+  @font-face { font-family: "Inter Vetrina"; src: url("inter-regular.woff") format("woff"); font-display: swap; }
+  :root { --carta: #FFFFFF; --inchiostro: #000000; --margine: 40px; --corpo: 13px; --spaziatura: 0.048em; --tratto: 0.6px; }
+  * { box-sizing: border-box; }
+  html { background: var(--carta); color: var(--inchiostro); -webkit-tap-highlight-color: transparent; }
+  body { margin: 0; font-family: "Inter Vetrina", Inter, "Helvetica Neue", Arial, sans-serif; font-size: var(--corpo); line-height: 1.5; letter-spacing: var(--spaziatura); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--inchiostro); color: var(--carta); }
+  a { color: inherit; text-decoration: none; }
+  a:hover, summary:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  :focus-visible { outline: 1px solid var(--inchiostro); outline-offset: 4px; }
+  p, h2 { margin: 0; font-weight: 400; font-size: inherit; }
+  h1 { margin: 0; line-height: 0; }
+
+  .vetrina { min-height: 100vh; padding: var(--margine); display: grid; grid-template-columns: 56fr 44fr; grid-template-rows: auto 1fr auto; }
+  .logo { grid-column: 1; grid-row: 1; width: 230px; }
+  .logo svg { display: block; width: 100%; height: auto; fill: var(--inchiostro); }
+  /* «project space…» sul computer: la cima delle minuscole è all’altezza del bordo superiore delle lettere del logo, cioè della Z più a destra */
+  .chi { grid-column: 2; grid-row: 1; padding-top: 25px; }
+  .dove { grid-column: 1; grid-row: 3; align-self: end; }
+  .voci { grid-column: 2; grid-row: 2 / 4; align-self: end; }
+
+  details > summary { list-style: none; cursor: pointer; width: max-content; -webkit-user-select: none; user-select: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::after { content: " +"; }
+  details[open] > summary::after { content: " –"; }
+  .testo-about { max-width: 36em; margin: 6px 0 14px; }
+
+  .newsletter { margin: 18px 0 22px; max-width: 420px; }
+  .newsletter > p { margin-bottom: 12px; }
+  /* il modulo arriva da sender in un riquadro: qui solo la larghezza della colonna, l’aspetto si regola dentro sender */
+  .sender-form-field, .sender-form-field > div, .sender-form-field iframe { display: block !important; width: 100% !important; max-width: 100% !important; }
+  /* il posto del modulo è tenuto da subito (298 px nella colonna, 306 sul telefono), così il blocco di destra non salta quando arriva */
+  .sender-form-field { min-height: 298px; }
+  @media (max-width: 760px) { .sender-form-field { min-height: 306px; } }
+  /* lettere del modulo in grigi puri, come quelle della vetrina: senza, Chrome sul Mac le disegna con i bordi colorati */
+  .sender-form-field iframe { border-radius: 0 !important; filter: grayscale(1); }
+  .nota-privacy { margin-top: 8px; font-size: 10.5px; }
+  .nota-privacy a { text-decoration: underline; text-underline-offset: 2px; }
+
+  /* la pianta nascosta: zone invisibili che al passaggio del mouse mostrano un pezzo della pianta dello spazio */
+  .pianta { grid-column: 1; grid-row: 2; align-self: center; justify-self: start; position: relative; width: min(640px, 44vw, calc((100vh - 330px) * 1.55)); aspect-ratio: 158.736 / 102.412; color: var(--inchiostro); }
+  .pianta svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  @media (hover: none), (pointer: coarse) { .pianta { display: none; } }
+
+  .pezzo { visibility: hidden; }
+  .pezzo.visto { visibility: visible; }
+  .zone { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); }
+
+  @media (max-width: 760px) {
+    :root { --margine: 22px; }
+    .vetrina { display: flex; flex-direction: column; min-height: 100svh; }
+    .logo { width: 150px; margin-bottom: 24px; }
+    .chi { padding-top: 2px; margin-bottom: 36px; }
+    .pianta { display: none; }
+    .voci { order: 2; align-self: stretch; }
+    .newsletter { max-width: none; margin: 18px 0 30px; }
+    .voci { display: flex; flex-direction: column; }
+    .dove { order: 3; align-self: flex-start; margin-top: 26px; }
+  }
+</style>
+<script>
+  // modulo della newsletter: lo script di sender, una volta per pagina
+  (function (s, e, n, d, er) {
+    s['Sender'] = er;
+    s[er] = s[er] || function () {
+      (s[er].q = s[er].q || []).push(arguments)
+    }, s[er].l = 1 * new Date();
+    s[er].on = function(event, callback) {
+      s[er].listeners = s[er].listeners || {};
+      (s[er].listeners[event] = s[er].listeners[event] || []).push(callback);
+    };
+    var a = e.createElement(n),
+        m = e.getElementsByTagName(n)[0];
+    a.async = 1;
+    a.src = d;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+  sender('9cf6300d6e5546')
+</script>
+</head>
+<body>
+<main class="vetrina">
+  <h1 class="logo"><svg viewBox="0 0 1840.824 824" role="img" aria-labelledby="nome"><title id="nome">xyz_xyz</title><path d="M1771.568,299.234l-85.077,12.121v.308l-127.952,152.549h131.734v60.569h-222.201v-57.538l124.915-152.555h-119.995v-27.119l-76.846,144.47v92.742h-75.327v-92.742l-79.346-149.169-66.009,105.258,85.553,136.653h-89.341l-48.831-90.848-48.455,90.848h-89.711l85.547-136.653-84.416-134.003h88.96l48.074,88.954,47.699-88.954h139.673l48.455,108.262,48.074-108.262h186.725l.466-1.115c15.972-34.931,30.141-71.002,44.524-106.525l22.453-53.72L1592.476,0l-403.795,42.341v-.027s-192.84,20.221-192.84,20.221l-60.296,91.002-101.534-74.033-387.124,40.593-57.799,87.461-108.604-70.013-205.061,21.502L0,405.461l106.617,70.894,55.232-88.227-84.416-134.003h88.96l48.074,88.954,47.699-88.954h139.673l48.455,108.262,48.074-108.262h279.744v57.538l-127.952,152.549h131.734v60.569h-222.201v-57.538l124.915-152.555h-119.995v-27.119l-76.846,144.47v92.742h-75.328v-92.742l-79.346-149.169-66.009,105.258,85.553,136.653h-89.341l-48.831-90.848-44.939,84.255,75.566,50.247.029-.049.688.458-83.232,255.157,251.288-32.023,54.09-93.18,115.324,74.908,205.126-22.126,82.771-142.265,90.696,123.554,173.223-18.685,74.66-128.055-3.37,19.753,68.433,93.086,415.454-50.655,150.551-261.81-69.256-87.268ZM944.206,524.781h-121.717v-60.859h121.717v60.859Z"/></svg></h1>
+
+  <p class="chi">project space<br>for contemporary art</p>
+
+  <div class="pianta" aria-hidden="true">
+    <svg viewBox="0 0 158.736 102.412"><defs><g id="muri"><line x1="0" y1="0" x2="158.736" y2="0" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="158.736" y1="0" x2="158.736" y2="11.948" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="158.736" y1="40.965" x2="158.736" y2="61.447" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="158.736" y1="90.465" x2="158.736" y2="102.412" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="158.736" y1="102.412" x2="46.08" y2="102.412" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="46.08" y1="102.412" x2="46.08" y2="81.93" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="46.08" y1="81.93" x2="0" y2="81.93" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="0" y1="81.93" x2="0" y2="0" stroke="currentColor" stroke-width="1" shape-rendering="crispEdges" vector-effect="non-scaling-stroke"/><line x1="46.08" y1="0" x2="46.08" y2="6.826" stroke="currentColor" stroke-width="0.6" vector-effect="non-scaling-stroke"/><line x1="46.08" y1="25.599" x2="46.08" y2="81.93" stroke="currentColor" stroke-width="0.6" vector-effect="non-scaling-stroke"/></g><clipPath id="z0"><rect x="-2.000" y="-2.000" width="41.684" height="36.137"/></clipPath><clipPath id="z1"><rect x="39.684" y="-2.000" width="39.684" height="36.137"/></clipPath><clipPath id="z2"><rect x="79.368" y="-2.000" width="39.684" height="36.137"/></clipPath><clipPath id="z3"><rect x="119.052" y="-2.000" width="41.684" height="36.137"/></clipPath><clipPath id="z4"><rect x="-2.000" y="34.137" width="41.684" height="34.137"/></clipPath><clipPath id="z5"><rect x="39.684" y="34.137" width="39.684" height="34.137"/></clipPath><clipPath id="z6"><rect x="79.368" y="34.137" width="39.684" height="34.137"/></clipPath><clipPath id="z7"><rect x="119.052" y="34.137" width="41.684" height="34.137"/></clipPath><clipPath id="z8"><rect x="-2.000" y="68.275" width="41.684" height="36.137"/></clipPath><clipPath id="z9"><rect x="39.684" y="68.275" width="39.684" height="36.137"/></clipPath><clipPath id="z10"><rect x="79.368" y="68.275" width="39.684" height="36.137"/></clipPath><clipPath id="z11"><rect x="119.052" y="68.275" width="41.684" height="36.137"/></clipPath></defs><use href="#muri" class="pezzo" clip-path="url(#z0)"/><use href="#muri" class="pezzo" clip-path="url(#z1)"/><use href="#muri" class="pezzo" clip-path="url(#z2)"/><use href="#muri" class="pezzo" clip-path="url(#z3)"/><use href="#muri" class="pezzo" clip-path="url(#z4)"/><use href="#muri" class="pezzo" clip-path="url(#z5)"/><use href="#muri" class="pezzo" clip-path="url(#z6)"/><use href="#muri" class="pezzo" clip-path="url(#z7)"/><use href="#muri" class="pezzo" clip-path="url(#z8)"/><use href="#muri" class="pezzo" clip-path="url(#z9)"/><use href="#muri" class="pezzo" clip-path="url(#z10)"/><use href="#muri" class="pezzo" clip-path="url(#z11)"/></svg>
+    <div class="zone"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <p class="dove">via giuseppe mazzini, 64<br>59100 Prato<br>by appointment only</p>
+
+  <div class="voci">
+    <details id="about" open><summary>about</summary>
+      <p class="testo-about">xyz_xyz is a project space for contemporary art, founded by giacomo cristiani and filippo zanini. two large rooms with terrazzo floors, two windows facing the street. every exhibition begins with an invitation: the artist conceives a new project for these rooms and often makes the work here.</p>
+    </details>
+    <section class="newsletter" aria-labelledby="nl">
+      <h2 id="nl">newsletter</h2>
+      <p>exhibitions and openings, by email.</p>
+      <div style="text-align: left" class="sender-form-field" data-sender-form-id="eVOXPz"></div>
+      <p class="nota-privacy"><a href="privacy.html">privacy notice</a></p>
+    </section>
+    <p class="contatti"><a href="mailto:ciao@xyzxyz.it">ciao@xyzxyz.it</a><br><a href="https://www.instagram.com/xyzxyz.it/">@xyzxyz.it</a></p>
+  </div>
+</main>
+<script>
+  // la pianta nascosta: ogni zona mostra il suo pezzo finché il mouse è sopra, e ancora per un attimo dopo
+  const RESTA = 600; // millesimi di secondo
+  const pezzi = document.querySelectorAll('.pezzo');
+  document.querySelectorAll('.zone span').forEach((zona, i) => {
+    let attesa;
+    zona.addEventListener('mouseenter', () => { clearTimeout(attesa); pezzi[i].classList.add('visto'); });
+    zona.addEventListener('mouseleave', () => { attesa = setTimeout(() => pezzi[i].classList.remove('visto'), RESTA); });
+  });
+
+  // niente selezione con il doppio o il triplo clic: premendo più volte su «about» non compare la banda nera
+  document.addEventListener('mousedown', (e) => { if (e.detail > 1) e.preventDefault(); });
+
+  // se il modulo di sender non arriva (per esempio con un blocco degli annunci), il suo posto non resta vuoto
+  setTimeout(() => { const m = document.querySelector('.sender-form-field'); if (m && !m.querySelector('iframe')) m.style.minHeight = '0'; }, 6000);
+</script>
+</body>
+</html>
